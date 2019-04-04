@@ -68,12 +68,21 @@ const read = [
 ]
 
 class BooksApp extends Component {
-  state = {}
+  state = {
+    books: []
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
+  }
 
   render() {
+    console.log(this.state.books)
     return (
       <div className="app">
-      
+
        {/* Main Page*/}
        <Route exact path="/" render={() => (
          <ListBooks
@@ -84,7 +93,11 @@ class BooksApp extends Component {
        )}/>
 
        {/* Search Page */}
-       <Route path="/search" component={SearchBooks}/>
+       <Route path="/search" render={() => (
+         <SearchBooks
+            books={this.state.books}
+         />
+       )}/>
       </div>
     )
   }

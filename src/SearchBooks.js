@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types'
 
 class SearchBooks extends Component {
 
+  static propTypes = {
+      books: PropTypes.array.isRequired,
+  }
+
   render() {
+    console.log('Search ', this.props.books.map((x) => x.title));
     return (
       <div className="search-books">
         <div className="search-books-bar">
