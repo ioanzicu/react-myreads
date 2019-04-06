@@ -196,3 +196,15 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+.showing-books {
+  text-align: center;
+}
+
+.showing-books button {
+  color: blue;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+}

@@ -76,6 +76,7 @@ class BooksApp extends Component {
   }
 
   render() {
+    console.log(this.state.books)
     return (
       <div className="app">
 
@@ -83,6 +84,7 @@ class BooksApp extends Component {
        <Route exact path="/" render={() => (
          <ListBooks
             currentlyReading={this.state.currentlyReading}
+            addToCurrentlyReading={this.addToCurrentlyReading}
             wantToRead={this.state.wantToRead}
             read={this.state.read}
          />
