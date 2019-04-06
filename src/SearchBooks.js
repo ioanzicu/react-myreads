@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
 
 class SearchBooks extends Component {
 
@@ -13,10 +15,20 @@ class SearchBooks extends Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query: query.trim() })
+    this.setState({ query: query })
   }
 
   render() {
+    let showingBooks
+    if (this.state.query) {
+      const match = new RegExp(escapeRegExp(this.state.query), 'i')
+      showingBooks = this.props.books.filter( (book) => match.test(book.title) )
+    } else {
+      showingBooks = this.props.books
+    }
+
+    showingBooks.sort(sortBy('title'))
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -37,13 +49,12 @@ class SearchBooks extends Component {
               onChange={(event) => this.updateQuery(event.target.value)}
             />
 
-            {JSON.stringify(this.state)}
           </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
 
-            {this.props.books.map( (book) =>
+            {showingBooks.map( (book) =>
               <li key={book.title}>
                 <div className="book">
                   <div className="book-top">
