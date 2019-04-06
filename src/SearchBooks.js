@@ -19,12 +19,15 @@ class SearchBooks extends Component {
   }
 
   render() {
+    const { books } = this.props
+    const { query } = this.state
+
     let showingBooks
-    if (this.state.query) {
-      const match = new RegExp(escapeRegExp(this.state.query), 'i')
-      showingBooks = this.props.books.filter( (book) => match.test(book.title) )
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), 'i')
+      showingBooks = books.filter( (book) => match.test(book.title) )
     } else {
-      showingBooks = this.props.books
+      showingBooks = books
     }
 
     showingBooks.sort(sortBy('title'))
@@ -45,7 +48,7 @@ class SearchBooks extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              value={this.state.query}
+              value={query}
               onChange={(event) => this.updateQuery(event.target.value)}
             />
 

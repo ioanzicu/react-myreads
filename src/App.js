@@ -69,16 +69,6 @@ class BooksApp extends Component {
     ]
   }
 
-  // moveBook = (book) => {
-    // this.setState((state) => ({
-          // The book was readed and go to read shelf
-          //if(state.option.value === currentlyReading)
-          //  currentlyReading.pop(book);
-          //  read.push(book);
-          // THe book is wantToRead and is starting to read
-    // }))
-  // }
-
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
