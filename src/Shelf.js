@@ -5,11 +5,12 @@ class Shelf extends Component {
   render() {
     return (
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{this.props.booksList[0].shelfName}</h2>
+        <h2 className="bookshelf-title">{this.props.title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
 
-            {this.props.booksList[0].books.map( (book) =>
+          {this.props.booksList.map( (book) =>
+            book.shelfName === this.props.shelfName && (
               <li key={book.title}>
                 <div className="book">
                   <div className="book-top">
@@ -17,7 +18,7 @@ class Shelf extends Component {
                     <div className="book-shelf-changer">
                       <select>
                         <option value="move" disabled>Move to...</option>
-                        <option value="currentlyReading" onClick={() => this.props.addToCurrentlyReading(book)}>Currently Reading</option>
+                        <option value="currentlyReading" onClick={() => this.props.moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
                         <option value="wantToRead">Want to Read</option>
                         <option value="read">Read</option>
                         <option value="none">None</option>
@@ -28,7 +29,8 @@ class Shelf extends Component {
                   <div className="book-authors">{book.author}</div>
                 </div>
               </li>
-            )}
+            )
+          )}
 
           </ol>
         </div>

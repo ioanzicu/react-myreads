@@ -60,6 +60,17 @@ class BooksApp extends Component {
     })
   }
 
+  moveToCurrentlyReadingShelf(book) {
+    this.setState(state => ({
+      booksList: state.booksList.map( b => {
+        console.log(b);
+        if (b.title === book.title)
+          b.shelfName = 'currently reading';
+        return b
+      })
+    }))
+  }
+
   render() {
     return (
       <div className="app">
@@ -67,17 +78,17 @@ class BooksApp extends Component {
        {/* Main Page*/}
        <Route exact path="/" render={() => (
          <ListBooks
-            currentlyReading={this.state.currentlyReading}
-            addToCurrentlyReading={this.addToCurrentlyReading}
-            wantToRead={this.state.wantToRead}
-            read={this.state.read}
-         />
+          booksList={this.state.booksList}
+          moveToCurrentlyReadingShelf={(book) => {
+            this.moveToCurrentlyReadingShelf(book)
+          }}
+        />
        )}/>
 
        {/* Search Page */}
        <Route path="/search" render={() => (
          <SearchBooks
-            books={this.state.books}
+            books={this.state.booksAPI}
          />
        )}/>
       </div>

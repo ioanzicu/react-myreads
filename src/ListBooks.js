@@ -6,10 +6,8 @@ import PropTypes from 'prop-types'
 class ListBooks extends Component {
 
   static propTypes = {
-      currentlyReading: PropTypes.array.isRequired,
-      addToCurrentlyReading: PropTypes.func.isRequired,
-      wantToRead: PropTypes.array.isRequired,
-      read: PropTypes.array.isRequired,
+      booksList: PropTypes.array.isRequired,
+      moveToCurrentlyReadingShelf: PropTypes.func.isRequired,
   }
 
   render() {
@@ -20,12 +18,34 @@ class ListBooks extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <Shelf booksList={this.props.currentlyReading} />
+
             <Shelf
-              booksList={this.props.wantToRead}
-              addToCurrentlyReading={this.props.addToCurrentlyReading}
+              booksList={this.props.booksList}
+              moveToCurrentlyReadingShelf={(book) => {
+                  this.props.moveToCurrentlyReadingShelf(book)
+              }}
+              title={'Currently Reading'}
+              shelfName={'currently reading'}
             />
-            <Shelf booksList={this.props.read} />
+
+            <Shelf
+              booksList={this.props.booksList}
+              moveToCurrentlyReadingShelf={(book) => {
+                  this.props.moveToCurrentlyReadingShelf(book)
+              }}
+              title={'Want To Read'}
+              shelfName={'want to read'}
+            />
+
+            <Shelf
+              booksList={this.props.booksList}
+              moveToCurrentlyReadingShelf={(book) => {
+                  this.props.moveToCurrentlyReadingShelf(book)
+              }}
+              title={'Read'}
+              shelfName={'read'}
+            />
+
           </div>
         </div>
         <div className="open-search">
