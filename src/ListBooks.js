@@ -14,6 +14,14 @@ class ListBooks extends Component {
   }
 
   render() {
+    const {
+      booksList,
+      moveToCurrentlyReadingShelf,
+      moveToWantToReadShelf,
+      moveToReadShelf,
+      onDeleteBook
+     } = this.props
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -23,55 +31,31 @@ class ListBooks extends Component {
           <div>
 
             <Shelf
-              booksList={this.props.booksList}
-              moveToCurrentlyReadingShelf={(book) => {
-                  this.props.moveToCurrentlyReadingShelf(book)
-              }}
-              moveToWantToReadShelf={(book) => {
-                  this.props.moveToWantToReadShelf(book)
-              }}
-              moveToReadShelf={(book) => {
-                  this.props.moveToReadShelf(book)
-              }}
-              onDeleteBook={(book) => {
-                  this.props.onDeleteBook(book)
-              }}
+              booksList={booksList}
+              moveToCurrentlyReadingShelf={(book) => { moveToCurrentlyReadingShelf(book) }}
+              moveToWantToReadShelf={(book) => { moveToWantToReadShelf(book) }}
+              moveToReadShelf={(book) => { moveToReadShelf(book) }}
+              onDeleteBook={(book) => { onDeleteBook(book) }}
               title={'Currently Reading'}
               shelfName={'currently reading'}
             />
 
             <Shelf
-              booksList={this.props.booksList}
-              moveToCurrentlyReadingShelf={(book) => {
-                  this.props.moveToCurrentlyReadingShelf(book)
-              }}
-              moveToWantToReadShelf={(book) => {
-                  this.props.moveToWantToReadShelf(book)
-              }}
-              moveToReadShelf={(book) => {
-                  this.props.moveToReadShelf(book)
-              }}
-              onDeleteBook={(book) => {
-                  this.props.onDeleteBook(book)
-              }}
+              booksList={booksList}
+              moveToCurrentlyReadingShelf={(book) => { moveToCurrentlyReadingShelf(book) }}
+              moveToWantToReadShelf={(book) => { moveToWantToReadShelf(book) }}
+              moveToReadShelf={(book) => { moveToReadShelf(book) }}
+              onDeleteBook={(book) => { onDeleteBook(book) }}
               title={'Want To Read'}
               shelfName={'want to read'}
             />
 
             <Shelf
-              booksList={this.props.booksList}
-              moveToCurrentlyReadingShelf={(book) => {
-                  this.props.moveToCurrentlyReadingShelf(book)
-              }}
-              moveToWantToReadShelf={(book) => {
-                  this.props.moveToWantToReadShelf(book)
-              }}
-              moveToReadShelf={(book) => {
-                  this.props.moveToReadShelf(book)
-              }}
-              onDeleteBook={(book) => {
-                  this.props.onDeleteBook(book)
-              }}
+              booksList={booksList}
+              moveToCurrentlyReadingShelf={(book) => { moveToCurrentlyReadingShelf(book) }}
+              moveToWantToReadShelf={(book) => { moveToWantToReadShelf(book) }}
+              moveToReadShelf={(book) => { moveToReadShelf(book) }}
+              onDeleteBook={(book) => { onDeleteBook(book) }}
               title={'Read'}
               shelfName={'read'}
             />

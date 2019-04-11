@@ -27,9 +27,14 @@ class SearchBooks extends Component {
   }
 
   render() {
-    const { books } = this.props
+    const {
+      books,
+      moveToCurrentlyReadingShelf,
+      moveToWantToReadShelf,
+      moveToReadShelf,
+      onDeleteBook
+     } = this.props
     const { query } = this.state
-
 
     let showingBooks
     if (query) {
@@ -70,13 +75,13 @@ class SearchBooks extends Component {
                   <div className="book-top">
                     <div className="book-cover" style={{width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }}></div>
                       <div className="book-shelf-changer">
-                          <select>
-                            <option value="move" disabled>Move to...</option>
-                            <option value="currentlyReading" onClick={() => this.props.moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
-                            <option value="wantToRead" onClick={() => this.props.moveToWantToReadShelf(book)}>Want to Read</option>
-                            <option value="read" onClick={() => this.props.moveToReadShelf(book)}>Read</option>
-                            <option value="none" onClick={() => this.props.onDeleteBook(book)}>None</option>
-                          </select>
+                        <select>
+                          <option value="move" disabled>Move to...</option>
+                          <option value="currentlyReading" onClick={() => moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
+                          <option value="wantToRead" onClick={() => moveToWantToReadShelf(book)}>Want to Read</option>
+                          <option value="read" onClick={() => moveToReadShelf(book)}>Read</option>
+                          <option value="none" onClick={() => onDeleteBook(book)}>None</option>
+                        </select>
                       </div>
                     </div>
                   <div className="book-title">{book.title}</div>
