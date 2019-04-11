@@ -20,7 +20,7 @@ class Shelf extends Component {
                         <option value="move" disabled>Move to...</option>
                         <option value="currentlyReading" onClick={() => this.props.moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
                         <option value="wantToRead" onClick={() => this.props.moveToWantToReadShelf(book)}>Want to Read</option>
-                        <option value="read">Read</option>
+                        <option value="read" onClick={() => this.props.moveToReadShelf(book)}>Read</option>
                         <option value="none">None</option>
                       </select>
                     </div>

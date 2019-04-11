@@ -80,6 +80,16 @@ class BooksApp extends Component {
     }))
   }
 
+  moveToReadShelf(book) {
+    this.setState(state => ({
+      booksList: state.booksList.map( b => {
+        if (b.title === book.title)
+          b.shelfName = 'read';
+        return b
+      })
+    }))
+  }
+
   render() {
     return (
       <div className="app">
@@ -93,6 +103,9 @@ class BooksApp extends Component {
           }}
           moveToWantToReadShelf={(book) => {
             this.moveToWantToReadShelf(book)
+          }}
+          moveToReadShelf={(book) => {
+            this.moveToReadShelf(book)
           }}
         />
        )}/>
