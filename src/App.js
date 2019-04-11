@@ -61,6 +61,15 @@ class BooksApp extends Component {
   }
 
   moveToCurrentlyReadingShelf(book) {
+    for(const b of this.state.booksList){
+      if(b.title !== book.title){
+        book.shelfName = 'currently reading';
+        book.style={width: 128, height: 193, backgroundImage: `url("${book.imageLinks.thumbnail}")` }
+        this.setState({
+          booksList: this.state.booksList.concat([ book ])
+        })
+      }
+    }
     this.setState(state => ({
       booksList: state.booksList.map( b => {
         if (b.title === book.title)
@@ -118,9 +127,19 @@ class BooksApp extends Component {
        )}/>
 
        {/* Search Page */}
-       <Route path="/search" render={() => (
+       <Route path="/search" render={({ history }) => (
          <SearchBooks
             books={this.state.booksAPI}
+            moveToCurrentlyReadingShelf={(book) => {
+              this.moveToCurrentlyReadingShelf(book)
+            }}
+            moveToWantToReadShelf={(book) => {
+              this.moveToWantToReadShelf(book)
+            }}
+            moveToReadShelf={(book) => {
+              this.moveToReadShelf(book)
+            }}
+            onDeleteBook={this.removeBook}
          />
        )}/>
       </div>
