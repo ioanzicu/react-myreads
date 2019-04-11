@@ -8,6 +8,9 @@ class ListBooks extends Component {
   static propTypes = {
       booksList: PropTypes.array.isRequired,
       moveToCurrentlyReadingShelf: PropTypes.func.isRequired,
+      moveToWantToReadShelf: PropTypes.func.isRequired,
+      moveToReadShelf: PropTypes.func.isRequired,
+      onDeleteBook: PropTypes.func.isRequired
   }
 
   render() {

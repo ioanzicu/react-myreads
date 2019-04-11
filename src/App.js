@@ -116,7 +116,7 @@ class BooksApp extends Component {
         }
       }
     }
-    
+
     this.setState(state => ({
       booksList: state.booksList.map( b => {
         if (b.title === book.title)

@@ -8,6 +8,10 @@ class SearchBooks extends Component {
 
   static propTypes = {
       books: PropTypes.array.isRequired,
+      moveToCurrentlyReadingShelf: PropTypes.func.isRequired,
+      moveToWantToReadShelf: PropTypes.func.isRequired,
+      moveToReadShelf: PropTypes.func.isRequired,
+      onDeleteBook: PropTypes.func.isRequired
   }
 
   state = {
@@ -25,6 +29,7 @@ class SearchBooks extends Component {
   render() {
     const { books } = this.props
     const { query } = this.state
+
 
     let showingBooks
     if (query) {

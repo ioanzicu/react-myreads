@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Shelf extends Component {
+
+  static propTypes = {
+      booksList: PropTypes.array.isRequired,
+      moveToCurrentlyReadingShelf: PropTypes.func.isRequired,
+      moveToWantToReadShelf: PropTypes.func.isRequired,
+      moveToReadShelf: PropTypes.func.isRequired,
+      onDeleteBook: PropTypes.func.isRequired
+  }
 
   render() {
     return (
@@ -16,7 +25,7 @@ class Shelf extends Component {
                   <div className="book-top">
                     <div className="book-cover" style={{width: 128, height: 188, backgroundImage: `url(${book.url})`}}></div>
                     <div className="book-shelf-changer">
-                      <select>
+                      <select autofocus>
                         <option value="move" disabled>Move to...</option>
                         <option value="currentlyReading" onClick={() => this.props.moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
                         <option value="wantToRead" onClick={() => this.props.moveToWantToReadShelf(book)}>Want to Read</option>
