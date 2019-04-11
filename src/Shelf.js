@@ -14,7 +14,7 @@ class Shelf extends Component {
               <li key={book.title}>
                 <div className="book">
                   <div className="book-top">
-                    <div className="book-cover" style={book.style}></div>
+                    <div className="book-cover" style={{width: 128, height: 188, backgroundImage: `url(${book.url})`}}></div>
                     <div className="book-shelf-changer">
                       <select>
                         <option value="move" disabled>Move to...</option>
