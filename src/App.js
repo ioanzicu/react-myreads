@@ -55,17 +55,26 @@ class BooksApp extends Component {
   }
 
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books })
+    BooksAPI.getAll().then((booksAPI) => {
+      this.setState({ booksAPI })
     })
   }
 
   moveToCurrentlyReadingShelf(book) {
     this.setState(state => ({
       booksList: state.booksList.map( b => {
-        console.log(b);
         if (b.title === book.title)
           b.shelfName = 'currently reading';
+        return b
+      })
+    }))
+  }
+
+  moveToWantToReadShelf(book) {
+    this.setState(state => ({
+      booksList: state.booksList.map( b => {
+        if (b.title === book.title)
+          b.shelfName = 'want to read';
         return b
       })
     }))
@@ -81,6 +90,9 @@ class BooksApp extends Component {
           booksList={this.state.booksList}
           moveToCurrentlyReadingShelf={(book) => {
             this.moveToCurrentlyReadingShelf(book)
+          }}
+          moveToWantToReadShelf={(book) => {
+            this.moveToWantToReadShelf(book)
           }}
         />
        )}/>
