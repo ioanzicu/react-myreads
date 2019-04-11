@@ -21,7 +21,7 @@ class Shelf extends Component {
                         <option value="currentlyReading" onClick={() => this.props.moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
                         <option value="wantToRead" onClick={() => this.props.moveToWantToReadShelf(book)}>Want to Read</option>
                         <option value="read" onClick={() => this.props.moveToReadShelf(book)}>Read</option>
-                        <option value="none">None</option>
+                        <option value="none" onClick={() => this.props.onDeleteBook(book)}>None</option>
                       </select>
                     </div>
                   </div>

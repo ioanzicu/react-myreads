@@ -30,6 +30,9 @@ class ListBooks extends Component {
               moveToReadShelf={(book) => {
                   this.props.moveToReadShelf(book)
               }}
+              onDeleteBook={(book) => {
+                  this.props.onDeleteBook(book)
+              }}
               title={'Currently Reading'}
               shelfName={'currently reading'}
             />
@@ -45,6 +48,9 @@ class ListBooks extends Component {
               moveToReadShelf={(book) => {
                   this.props.moveToReadShelf(book)
               }}
+              onDeleteBook={(book) => {
+                  this.props.onDeleteBook(book)
+              }}
               title={'Want To Read'}
               shelfName={'want to read'}
             />
@@ -59,6 +65,9 @@ class ListBooks extends Component {
               }}
               moveToReadShelf={(book) => {
                   this.props.moveToReadShelf(book)
+              }}
+              onDeleteBook={(book) => {
+                  this.props.onDeleteBook(book)
               }}
               title={'Read'}
               shelfName={'read'}

@@ -90,6 +90,12 @@ class BooksApp extends Component {
     }))
   }
 
+  removeBook = (book) => {
+    this.setState((state) => ({
+      booksList: state.booksList.filter( b => b.title !== book.title)
+    }))
+  }
+
   render() {
     return (
       <div className="app">
@@ -107,6 +113,7 @@ class BooksApp extends Component {
           moveToReadShelf={(book) => {
             this.moveToReadShelf(book)
           }}
+          onDeleteBook={this.removeBook}
         />
        )}/>
 
