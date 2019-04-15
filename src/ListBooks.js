@@ -37,7 +37,7 @@ class ListBooks extends Component {
               moveToReadShelf={(book) => { moveToReadShelf(book) }}
               onDeleteBook={(book) => { onDeleteBook(book) }}
               title={'Currently Reading'}
-              shelfName={'currently reading'}
+              shelfName={'currentlyReading'}
             />
 
             <Shelf
@@ -47,7 +47,7 @@ class ListBooks extends Component {
               moveToReadShelf={(book) => { moveToReadShelf(book) }}
               onDeleteBook={(book) => { onDeleteBook(book) }}
               title={'Want To Read'}
-              shelfName={'want to read'}
+              shelfName={'wantToRead'}
             />
 
             <Shelf
