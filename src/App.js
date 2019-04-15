@@ -136,7 +136,6 @@ class BooksApp extends Component {
     return (
       <div className="app">
 
-       {/* Main Page*/}
        <Route exact path="/" render={() => (
          <ListBooks
           booksList={this.state.booksList}
@@ -153,7 +152,6 @@ class BooksApp extends Component {
         />
        )}/>
 
-       {/* Search Page */}
        <Route path="/search" render={({ history }) => (
          <SearchBooks
             books={this.state.booksAPI}

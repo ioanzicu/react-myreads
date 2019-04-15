@@ -37,9 +37,9 @@ class Shelf extends Component {
                     <div className="book-shelf-changer">
                       <select autofocus>
                         <option value="move" disabled>Move to...</option>
-                        <option value="currentlyReading" onClick={() => moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
-                        <option value="wantToRead" onClick={() => moveToWantToReadShelf(book)}>Want to Read</option>
-                        <option value="read" onClick={() => moveToReadShelf(book)}>Read</option>
+                        <option value="currentlyReading" selected={book.shelfName === 'currently reading'} onClick={() => moveToCurrentlyReadingShelf(book)}>Currently Reading</option>
+                        <option value="wantToRead" selected={book.shelfName === 'want to read'} onClick={() => moveToWantToReadShelf(book)}>Want to Read</option>
+                        <option value="read" selected={book.shelfName === 'read'} onClick={() => moveToReadShelf(book)}>Read</option>
                         <option value="none" onClick={() => onDeleteBook(book)}>None</option>
                       </select>
                     </div>
